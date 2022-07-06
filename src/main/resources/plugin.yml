@@ -1,0 +1,17 @@
+name: Combatlog
+version: '${project.version}'
+main: com.azortis.combatlog.Combatlog
+author: EOPhantom
+api-version: 1.19
+commands:
+  CombatTime:
+    description: displays the users combat time
+    usage: /<command>
+    aliases: ct
+  BlockedCommands:
+    description: block commands that players can use during combat
+    usage: </command> add/remove/list (command names)
+  CombatLogConfig:
+    description: configures the combatLog plugin
+    usage: </command>
+
