@@ -21,32 +21,38 @@ public class PlayerCombatConfigGui {
     public PlayerCombatConfigGui(Setter setter) {
         this.setter = setter;
         setter.setPlayerCombatConfigGui(this);
-        inv = Bukkit.createInventory(null,9,"Damage Amount");
+        inv = Bukkit.createInventory(null,27,"Damage Amount");
         initializeItems();
     }
 
     public void initializeItems() {
-        inv.setItem(0,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
-        inv.setItem(1,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
+        inv.setItem(9,createGuiItem(Material.WHITE_STAINED_GLASS_PANE, "", "", ""));
+        inv.setItem(10,createGuiItem(Material.WHITE_STAINED_GLASS_PANE, "", "", ""));
         if (toolBarToggle) {
-            inv.setItem(2,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
+            inv.setItem(11,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
         } else {
-            inv.setItem(2,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
+            inv.setItem(11,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
         }
-        inv.setItem(3,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
+        inv.setItem(12,createGuiItem(Material.WHITE_STAINED_GLASS_PANE, "", "", ""));
         if (keepInventoryToggle) {
-            inv.setItem(4,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
+            inv.setItem(13,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
         } else {
-            inv.setItem(4,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
+            inv.setItem(13,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
         }
-        inv.setItem(5,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
+        inv.setItem(14,createGuiItem(Material.WHITE_STAINED_GLASS_PANE, "", "", ""));
         if (villagerToggle) {
-            inv.setItem(6,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
+            inv.setItem(15,createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
         } else {
-            inv.setItem(6,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
+            inv.setItem(15,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
         }
-        inv.setItem(7,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
-        inv.setItem(8,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Go Back", "Go back to the config panel", ""));
+        inv.setItem(16,createGuiItem(Material.WHITE_STAINED_GLASS_PANE, "", "", ""));
+        inv.setItem(17,createGuiItem(Material.RED_STAINED_GLASS_PANE, "Go Back", "Go back to the config panel", ""));
+        for (int i = 0; i < 9; i++) {
+            inv.setItem(i ,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
+        }
+        for (int i = 18; i < 27; i++) {
+            inv.setItem(i ,createGuiItem(Material.GRAY_STAINED_GLASS_PANE, "", "", ""));
+        }
     }
 
     public ItemStack createGuiItem(final Material material, final String name, final String... lore) {

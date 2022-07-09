@@ -3,6 +3,7 @@ version: '${project.version}'
 main: com.azortis.combatlog.Combatlog
 author: EOPhantom
 api-version: 1.19
+depend: [WorldGuard]
 commands:
   CombatTime:
     description: displays the users combat time
@@ -14,4 +15,3 @@ commands:
   CombatLogConfig:
     description: configures the combatLog plugin
     usage: </command>
-

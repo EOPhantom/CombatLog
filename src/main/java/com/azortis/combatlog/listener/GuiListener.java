@@ -33,18 +33,18 @@ public class GuiListener implements Listener {
             ItemStack clickedItem = event.getCurrentItem();
             Player player = (Player) event.getWhoClicked();
             if (clickedItem == null || clickedItem.getType().isAir()) return;
-            if (event.getRawSlot() == 2) {
+            if (event.getRawSlot() == 11) {
                 if (configGui.toggle) {
                     configGui.toggle = false;
-                    configGui.inv.setItem(2,configGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle DamageTools", "Green = Plugin is active", "Red = Plugin is disabled"));
+                    configGui.inv.setItem(11,configGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle DamageTools", "Green = Plugin is active", "Red = Plugin is disabled"));
                 } else {
                     configGui.toggle = true;
-                    configGui.inv.setItem(2,configGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle DamageTools", "Green = Plugin is active", "Red = Plugin is disabled"));
+                    configGui.inv.setItem(11,configGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle DamageTools", "Green = Plugin is active", "Red = Plugin is disabled"));
                 }
-            } else if (event.getRawSlot() == 4) {
+            } else if (event.getRawSlot() == 13) {
                 player.closeInventory();
                 combatTimeGui.openInventory(player);
-            } else if (event.getRawSlot() == 6) {
+            } else if (event.getRawSlot() == 15) {
                 player.closeInventory();
                 playerCombatConfigGui.openInventory(player);
             }
@@ -53,57 +53,58 @@ public class GuiListener implements Listener {
             ItemStack clickedItem = event.getCurrentItem();
             Player player = (Player) event.getWhoClicked();
             if (clickedItem == null || clickedItem.getType().isAir()) return;
-            if (event.getRawSlot() == 1) {
+            if (event.getRawSlot() == 10) {
                 combatTimeGui.combatTime -= 10;
-            } else if (event.getRawSlot() == 2) {
+            } else if (event.getRawSlot() == 11) {
                 combatTimeGui.combatTime -= 5;
-            } else if (event.getRawSlot() == 3) {
+            } else if (event.getRawSlot() == 12) {
                 combatTimeGui.combatTime -= 1;
-            } else if (event.getRawSlot() == 5) {
+            } else if (event.getRawSlot() == 14) {
                 combatTimeGui.combatTime += 1;
-            } else if (event.getRawSlot() == 6) {
+            } else if (event.getRawSlot() == 15) {
                 combatTimeGui.combatTime += 5;
-            } else if (event.getRawSlot() == 7) {
+            } else if (event.getRawSlot() == 16) {
                 combatTimeGui.combatTime += 10;
-            } else if (event.getRawSlot() == 8) {
+            } else if (event.getRawSlot() == 17) {
                 player.closeInventory();
+                configGui.openInventory(player);
             }
             if (combatTimeGui.combatTime < 0) {
                 combatTimeGui.combatTime = 0;
             }
-            combatTimeGui.inv.setItem(4,combatTimeGui.createGuiItem(Material.YELLOW_STAINED_GLASS_PANE, "Current Damage: " + combatTimeGui.combatTime, "§6Change the value items take each time", "§cValues can not be negative!"));
+            combatTimeGui.inv.setItem(13,combatTimeGui.createGuiItem(Material.YELLOW_STAINED_GLASS_PANE, "Current Damage: " + combatTimeGui.combatTime, "§6Change the value items take each time", "§cValues can not be negative!"));
         } else if (event.getInventory().equals(playerCombatConfigGui.inv)) {
             event.setCancelled(true);
             ItemStack clickedItem = event.getCurrentItem();
             Player player = (Player) event.getWhoClicked();
             if (clickedItem == null || clickedItem.getType().isAir()) return;
-            if (event.getRawSlot() == 2) {
+            if (event.getRawSlot() == 11) {
                 if (playerCombatConfigGui.toolBarToggle) {
                     playerCombatConfigGui.toolBarToggle = false;
-                    playerCombatConfigGui.inv.setItem(2,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
+                    playerCombatConfigGui.inv.setItem(11,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
                 } else {
                     playerCombatConfigGui.toolBarToggle = true;
-                    playerCombatConfigGui.inv.setItem(2,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
+                    playerCombatConfigGui.inv.setItem(11,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Toolbar", "§aGreen = Toolbar is active", "§cRed = Toolbar is disabled"));
                 }
-            } else if (event.getRawSlot() == 4) {
+            } else if (event.getRawSlot() == 13) {
                 if (playerCombatConfigGui.keepInventoryToggle) {
                     playerCombatConfigGui.keepInventoryToggle = false;
-                    playerCombatConfigGui.inv.setItem(4,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
+                    playerCombatConfigGui.inv.setItem(13,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
                 } else {
                     playerCombatConfigGui.keepInventoryToggle = true;
-                    playerCombatConfigGui.inv.setItem(4,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
+                    playerCombatConfigGui.inv.setItem(13,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle Keep Inventory", "§aGreen = Keep Inventory is active", "§cRed = Keep Inventory is disabled"));
                 }
-            } else if (event.getRawSlot() == 6) {
+            } else if (event.getRawSlot() == 15) {
                 if (playerCombatConfigGui.villagerToggle) {
                     playerCombatConfigGui.villagerToggle = false;
-                    playerCombatConfigGui.inv.setItem(6,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
+                    playerCombatConfigGui.inv.setItem(15,playerCombatConfigGui.createGuiItem(Material.RED_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
                 } else {
                     playerCombatConfigGui.villagerToggle = true;
-                    playerCombatConfigGui.inv.setItem(6,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
+                    playerCombatConfigGui.inv.setItem(15,playerCombatConfigGui.createGuiItem(Material.GREEN_STAINED_GLASS_PANE, "Toggle villager CombatLog", "§aGreen = Villager CombatLog is active", "§cRed = Villager CombatLog is disabled"));
                 }
-            } else if (event.getRawSlot() == 8) {
+            } else if (event.getRawSlot() == 17) {
                 player.closeInventory();
-                playerCombatConfigGui.openInventory(player);
+                configGui.openInventory(player);
             }
         }
     }

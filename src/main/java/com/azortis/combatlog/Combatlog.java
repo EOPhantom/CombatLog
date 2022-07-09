@@ -5,6 +5,7 @@ import com.azortis.combatlog.commands.ConfigCommand;
 import com.azortis.combatlog.gui.CombatTimeGui;
 import com.azortis.combatlog.gui.ConfigGui;
 import com.azortis.combatlog.gui.PlayerCombatConfigGui;
+import com.azortis.combatlog.listener.CombatAreaListener;
 import com.azortis.combatlog.listener.CombatListener;
 import com.azortis.combatlog.commands.CombatTimeCommand;
 import com.azortis.combatlog.listener.GuiListener;
@@ -23,6 +24,7 @@ public final class Combatlog extends JavaPlugin {
         new PlayerCombatConfigGui(setter);
         getServer().getPluginManager().registerEvents(new CombatListener(setter), this);
         getServer().getPluginManager().registerEvents(new GuiListener(setter), this);
+        getServer().getPluginManager().registerEvents(new CombatAreaListener(setter), this);
         getCommand("CombatTime").setExecutor(new CombatTimeCommand(setter));
         getCommand("BlockedCommands").setExecutor(new BlockedCommandsCommand(setter));
         getCommand("CombatLogConfig").setExecutor(new ConfigCommand(setter));
